@@ -18,7 +18,23 @@
         </ion-toolbar>
     </ion-card-header>
     <ion-card-content>
+      <ion-searchbar placeholder="Search">
+
+      </ion-searchbar>
        <ion-button class="ion-margin-top" expand="block" color="success" (click)="recipe()">Go to Recipe</ion-button>
+       <ion-item *ngFor="let recipeElement of recipeItemArray" class="ion-no-padding ion-padding-top">
+        
+             <ion-toolbar>
+                <ion-title>{{recipeElement.name}}</ion-title>
+                <ion-avatar slot="start">
+                  <ion-avatar>
+                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                  </ion-avatar>
+                </ion-avatar>
+              </ion-toolbar>
+
+       </ion-item>
     </ion-card-content>
  </ion-card>
+ 
 </ion-content>
