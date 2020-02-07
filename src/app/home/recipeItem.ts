@@ -1,4 +1,4 @@
 export interface RecipeItem{
-    name:  string;
-    imageUrl: string;
+    strDrink:  string;
+    strDrinkThumb: string;
 }

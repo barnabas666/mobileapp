@@ -18,7 +18,7 @@ export class RecipePage implements OnInit {
   }
 
   public getRecipe():void {
-    this.apiService.sendData().subscribe((data)=>{
+    this.apiService.getRecipeByName("").subscribe((data)=>{
       let receiveData: any = {};
       receiveData=data;
       this.recipeName=receiveData.drinks[0].strDrink});

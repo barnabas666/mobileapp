@@ -9,8 +9,14 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public sendData(): Observable<Object> {
+  public getRecipeByName(name: string): Observable<Object> {
 
-     return this.http.get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007');
+    console.log('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name);
+     return this.http.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name);
   }
+
+  public getRecipeById(name: string): Observable<Object> {
+
+    return this.http.get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + name);
+ }
 }
