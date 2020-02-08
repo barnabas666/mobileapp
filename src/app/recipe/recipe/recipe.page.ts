@@ -36,7 +36,7 @@ export class RecipePage implements OnInit {
       let dataReceive: any = {};
       dataReceive = data;
       this.recipe=dataReceive.drinks[0];
-      console.log(this.recipe);
+      console.log(this.recipe.strIngredient1);
     })
   }
 

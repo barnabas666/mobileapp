@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>recipe</ion-title>
+    <ion-title>Recipe</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="clickedStar()">
         <ion-icon slot="icon-only" name="star"></ion-icon>
@@ -24,6 +24,22 @@
     <ion-card-content>
       <img src="{{recipe.strDrinkThumb}}">
       <h1 class="ion-padding-top">Ingredients</h1>
+      <div *ngIf="recipe.strIngredient1 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient1}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient2 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient2}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient3 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient3}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient4 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient4}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient5 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient5}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient6 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient6}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient7 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient7}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient8 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient8}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient9 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient9}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient10 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient10}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient11 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient11}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient12 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient12}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient13 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient13}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient14 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient14}}</h2></ion-item-divider></div>
+      <div *ngIf="recipe.strIngredient15 != null" class="ion-padding-left"><ion-item-divider><h2>{{recipe.strIngredient15}}</h2></ion-item-divider></div>
+      <h1 class="ion-padding-top">Instructions</h1>
       <p>{{recipe.strInstructions}}</p>
     </ion-card-content>
  </ion-card>
