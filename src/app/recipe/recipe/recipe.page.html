@@ -1,6 +1,16 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="clickedBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>recipe</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="clickedStar()">
+        <ion-icon slot="icon-only" name="star"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -8,11 +18,13 @@
   <ion-card class="welcome-card">
     <ion-card-header class="ion-no-padding ion-padding-top" >
        <ion-toolbar>
-          <ion-title>{{recipeName}}</ion-title>
+          <ion-title>{{recipe.strDrink}}</ion-title>
         </ion-toolbar>
     </ion-card-header>
     <ion-card-content>
-       <ion-button class="ion-margin-top" expand="block" color="success" (click)="getRecipe()">Go to Login</ion-button>
+      <img src="{{recipe.strDrinkThumb}}">
+      <h1 class="ion-padding-top">Ingredients</h1>
+      <p>{{recipe.strInstructions}}</p>
     </ion-card-content>
  </ion-card>
 </ion-content>

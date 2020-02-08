@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
-    path: 'recipe',
+    path: 'recipe/:id',
     loadChildren: () => import('./recipe/recipe/recipe.module').then( m => m.RecipePageModule)
   },
 ];

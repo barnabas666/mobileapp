@@ -11,17 +11,19 @@ import { ApiService } from '../api/api.service';
 })
 export class HomePage {
 
-  public recipeItemArray: Array<RecipeItem> = [{strDrink: "recipe", strDrinkThumb: "https:\/\/www.thecocktaildb.com\/images\/media\/drink\/wpxpvu1439905379.jpg"}, {strDrink: "recipe2", strDrinkThumb: "https:\/\/www.thecocktaildb.com\/images\/media\/drink\/wpxpvu1439905379.jpg"}]
+  public recipeItemArray: Array<RecipeItem>// = [{strDrink: "recipe", strDrinkThumb: "https:\/\/www.thecocktaildb.com\/images\/media\/drink\/wpxpvu1439905379.jpg"}, {strDrink: "recipe2", strDrinkThumb: "https:\/\/www.thecocktaildb.com\/images\/media\/drink\/wpxpvu1439905379.jpg"}]
 
   constructor(private router:Router, private apiService: ApiService) {}
 
-  private recipe():void{this.router.navigate(["recipe"])}
+  private recipe(recipe:RecipeItem):void{
+    this.router.navigate(["recipe", recipe.idDrink]);
+  }
 
   public searchByName(name: string):void {
     this.apiService.getRecipeByName(name).toPromise().then((data)=>{
       let receiveData: any = {};
       receiveData=data;
-      console.log(receiveData.drinks);
+      
       this.recipeItemArray=receiveData.drinks});
   }
 

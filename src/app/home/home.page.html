@@ -27,7 +27,7 @@
            Search</ion-button>
      </form>
        <ion-button class="ion-margin-top" expand="block" color="success" (click)="recipe()">Go to Recipe</ion-button>
-       <ion-item *ngFor="let recipeElement of recipeItemArray" class="ion-no-padding ion-padding-top" (click)="recipe()">
+       <ion-item *ngFor="let recipeElement of recipeItemArray" class="ion-no-padding ion-padding-top" (click)="recipe(recipeElement)">
         
              <ion-toolbar>
                 <ion-title>{{recipeElement.strDrink}}</ion-title>
