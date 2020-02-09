@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { RecipeItem } from './recipeItem';
 import { ApiService } from '../api/api.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -26,5 +25,7 @@ export class HomePage {
       
       this.recipeItemArray=receiveData.drinks});
   }
-
+  openBookmarks() {
+    this.router.navigate(["bookmarks"]);  
+  }
 }

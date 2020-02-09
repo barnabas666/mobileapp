@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'recipe/:id',
     loadChildren: () => import('./recipe/recipe/recipe.module').then( m => m.RecipePageModule)
   },
+  {
+    path: 'bookmarks',
+    loadChildren: () => import('./recipe/bookmarks/bookmarks.module').then( m => m.BookmarksPageModule)
+  },
 ];
 
 @NgModule({

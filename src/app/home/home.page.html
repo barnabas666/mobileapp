@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="logout()">
-         
-        <ion-icon slot="start" name="menu"></ion-icon>
+      <ion-button (click)="openBookmarks()">
+         Bookmarks
+        <ion-icon slot="start" name="bookmark"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>Cocktail App</ion-title>
@@ -12,11 +12,6 @@
 
 <ion-content>
   <ion-card class="welcome-card">
-    <ion-card-header class="ion-no-padding ion-padding-top" >
-       <ion-toolbar>
-          <ion-title>Nazdar</ion-title>
-        </ion-toolbar>
-    </ion-card-header>
     <ion-card-content>
       <form #form="ngForm" (ngSubmit)="searchByName(form.value.name)" method="post" (keyup.enter)="searchByName(form.value.name)">
         <ion-item>
@@ -26,9 +21,7 @@
         <ion-button class="ion-margin-top" type="submit" expand="block" color="primary" [disabled]="!form.valid">
            Search</ion-button>
      </form>
-       <ion-button class="ion-margin-top" expand="block" color="success" (click)="recipe()">Go to Recipe</ion-button>
-       <ion-item *ngFor="let recipeElement of recipeItemArray" class="ion-no-padding ion-padding-top" (click)="recipe(recipeElement)">
-        
+       <ion-item *ngFor="let recipeElement of recipeItemArray" class="ion-no-padding ion-padding-top" (click)="recipe(recipeElement)">        
              <ion-toolbar>
                 <ion-title>{{recipeElement.strDrink}}</ion-title>
                 <ion-avatar slot="start">
@@ -37,9 +30,8 @@
                   </ion-avatar>
                 </ion-avatar>
               </ion-toolbar>
-
        </ion-item>
     </ion-card-content>
- </ion-card>
- 
+ </ion-card> 
 </ion-content>
+

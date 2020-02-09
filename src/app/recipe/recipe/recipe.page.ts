@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RecipeItem } from 'src/app/home/recipeItem';
+import { BookmarksService } from 'src/app/storage/bookmarks.service';
 
 @Component({
   selector: 'app-recipe',
@@ -19,17 +20,14 @@ export class RecipePage implements OnInit {
   private id: string;
 
   constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute) {
-
    }
 
   ngOnInit() {  
   //  this.ionViewWillEnter();  
   }
-
   public clickedBack():void {
     this.router.navigate([""]);
   }
-
   ionViewWillEnter() {    
     this.id = this.route.snapshot.paramMap.get('id');    
     this.apiService.getRecipeById(this.id).toPromise().then((data)=>{
@@ -39,5 +37,10 @@ export class RecipePage implements OnInit {
       console.log(this.recipe.strIngredient1);
     })
   }
-
+  /*public addBookmark(): void {
+    this.bookmarks.addBookmark(this.id);
+  } 
+  public deleteBookmark(): void {
+    this.bookmarks.deleteBookmark(this.id);
+  }*/
 }
