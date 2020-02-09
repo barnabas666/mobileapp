@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookmarksService } from 'src/app/storage/bookmarks.service';
-import { NativeStorage } from '@ionic-native/native-storage';
+import { RecipeItem } from 'src/app/home/recipeItem';
+import { ApiService } from 'src/app/api/api.service';
+
 
 @Component({
   selector: 'app-bookmarks',
@@ -10,7 +12,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
 })
 export class BookmarksPage implements OnInit {
 
-  constructor(private router:Router) { }
+  public recipeItemArray: Array<RecipeItem>
+
+  constructor(private router:Router, private bookmarks:BookmarksService, private apiService:ApiService) { }
 
   ngOnInit() {
   }
@@ -27,10 +31,22 @@ export class BookmarksPage implements OnInit {
       console.log(this.recipe.strIngredient1);
     })*/
     //console.log(this.storage.keys());
-    /*this.bookmarks.loadBookmarks().then((data)=>{
-      console.log(data);
+    this.bookmarks.loadBookmarks().then((data)=>{
+      let array = [];
+      for (let id of data) {        
+        this.apiService.getRecipeById(id).toPromise().then((data)=>{
+          let dataReceive: any = {};
+          dataReceive = data;                
+        array.push(dataReceive.drinks[0]);
+        })
+      }
+      console.log(array);
+    this.recipeItemArray = array;
     },(error)=>{
       console.log(error);
-    })*/
+    })
+  }
+  private recipe(recipe:RecipeItem):void{
+    this.router.navigate(["recipe", recipe.idDrink]);
   }
 }

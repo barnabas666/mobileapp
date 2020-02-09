@@ -19,7 +19,7 @@ export class RecipePage implements OnInit {
   
   private id: string;
 
-  constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute) {
+  constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private bookmarks:BookmarksService) {
    }
 
   ngOnInit() {  
@@ -37,10 +37,10 @@ export class RecipePage implements OnInit {
       console.log(this.recipe.strIngredient1);
     })
   }
-  /*public addBookmark(): void {
+  public addBookmark(): void {
     this.bookmarks.addBookmark(this.id);
   } 
   public deleteBookmark(): void {
     this.bookmarks.deleteBookmark(this.id);
-  }*/
+  }
 }

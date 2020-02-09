@@ -10,5 +10,18 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card class="welcome-card">
+    <ion-card-content>
+  <ion-item *ngFor="let recipeElement of recipeItemArray" class="ion-no-padding ion-padding-top" (click)="recipe(recipeElement)">        
+    <ion-toolbar>
+       <ion-title>{{recipeElement.strDrink}}</ion-title>
+       <ion-avatar slot="start">
+         <ion-avatar>
+           <img src={{recipeElement.strDrinkThumb}}>
+         </ion-avatar>
+       </ion-avatar>
+     </ion-toolbar>
+</ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
