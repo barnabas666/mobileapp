@@ -23,14 +23,7 @@ export class BookmarksPage implements OnInit {
     this.router.navigate([""]);
   }
 
-  ionViewWillEnter() {      
-    /*this.apiService.getRecipeById(this.id).toPromise().then((data)=>{
-      let dataReceive: any = {};
-      dataReceive = data;
-      this.recipe=dataReceive.drinks[0];
-      console.log(this.recipe.strIngredient1);
-    })*/
-    //console.log(this.storage.keys());
+  ionViewWillEnter() {   
     this.bookmarks.loadBookmarks().then((data)=>{
       let array = [];
       for (let id of data) {        
@@ -39,12 +32,11 @@ export class BookmarksPage implements OnInit {
           dataReceive = data;                
         array.push(dataReceive.drinks[0]);
         })
-      }
-      console.log(array);
+      }    
     this.recipeItemArray = array;
     },(error)=>{
       console.log(error);
-    })
+    });
   }
   private recipe(recipe:RecipeItem):void{
     this.router.navigate(["recipe", recipe.idDrink]);

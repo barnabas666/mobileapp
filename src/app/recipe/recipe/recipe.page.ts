@@ -18,12 +18,13 @@ export class RecipePage implements OnInit {
   strIngredient11: "", strIngredient12: "", strIngredient13: "", strIngredient14: "", strIngredient15: ""};
   
   private id: string;
+  private isSaved: boolean = false;
 
   constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private bookmarks:BookmarksService) {
    }
 
   ngOnInit() {  
-  //  this.ionViewWillEnter();  
+    this.ionViewWillEnter();  
   }
   public clickedBack():void {
     this.router.navigate([""]);
@@ -33,14 +34,37 @@ export class RecipePage implements OnInit {
     this.apiService.getRecipeById(this.id).toPromise().then((data)=>{
       let dataReceive: any = {};
       dataReceive = data;
-      this.recipe=dataReceive.drinks[0];
-      console.log(this.recipe.strIngredient1);
-    })
+      this.recipe=dataReceive.drinks[0];    
+    });
+    this.isBookmark(this.id);
+    console.log(this.isSaved);
   }
   public addBookmark(): void {
-    this.bookmarks.addBookmark(this.id);
+    this.bookmarks.addBookmark(this.id);    
   } 
   public deleteBookmark(): void {
-    this.bookmarks.deleteBookmark(this.id);
+    this.bookmarks.deleteBookmark(this.id);    
+  }
+  public isBookmark(id: string): void {
+    let isBookmarkSaved = false;
+    this.bookmarks.loadBookmarks().then((data)=>{      
+      for (let dataId of data) {        
+        if(id == dataId) {
+          isBookmarkSaved = true;
+        }
+        console.log(isBookmarkSaved);
+      }      
+    },(error)=>{
+      console.log(error);
+    })  
+    this.isSaved = isBookmarkSaved;
+  }
+  public bookmarkClicked(): void {
+    this.isSaved = !this.isSaved;
+    if(this.isSaved) {
+      this.deleteBookmark();      
+    } else {
+      this.addBookmark();
+    }
   }
 }

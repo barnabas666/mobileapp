@@ -7,9 +7,10 @@
     </ion-buttons>
     <ion-title>Recipe</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="addBookmark()">
-        <ion-icon slot="icon-only" name="star"></ion-icon>
-      </ion-button>
+      <ion-button (click)="bookmarkClicked()">
+        <ion-icon slot="icon-only" name="star" *ngIf="!isSaved"></ion-icon>
+        <ion-icon slot="icon-only" name="star-outline" *ngIf="isSaved"></ion-icon>
+      </ion-button>      
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
