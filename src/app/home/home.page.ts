@@ -14,7 +14,7 @@ export class HomePage {
 
   constructor(private router:Router, private apiService: ApiService) {}
 
-  private recipe(recipe:RecipeItem):void{
+  public recipe(recipe:RecipeItem):void{
     this.router.navigate(["recipe", recipe.idDrink]);
   }
 

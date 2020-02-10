@@ -11,14 +11,14 @@ import { BookmarksService } from 'src/app/storage/bookmarks.service';
 })
 export class RecipePage implements OnInit {
 
-  private recipeName: string="prazdne";
-  private recipe: RecipeItem = {strDrink: "", strDrinkThumb: "", idDrink: "", strInstructions: "",
+  public recipeName: string="prazdne";
+  public recipe: RecipeItem = {strDrink: "", strDrinkThumb: "", idDrink: "", strInstructions: "",
   strIngredient1: "", strIngredient2: "", strIngredient3: "", strIngredient4: "", strIngredient5: "",
   strIngredient6: "", strIngredient7: "", strIngredient8: "", strIngredient9: "", strIngredient10: "",
   strIngredient11: "", strIngredient12: "", strIngredient13: "", strIngredient14: "", strIngredient15: ""};
   
-  private id: string;
-  private isSaved: boolean = false;
+  public id: string;
+  public isSaved: boolean = false;
 
   constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private bookmarks:BookmarksService) {
    }

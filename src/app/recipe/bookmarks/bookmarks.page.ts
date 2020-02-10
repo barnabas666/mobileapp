@@ -38,7 +38,7 @@ export class BookmarksPage implements OnInit {
       console.log(error);
     });
   }
-  private recipe(recipe:RecipeItem):void{
+  public recipe(recipe:RecipeItem):void{
     this.router.navigate(["recipe", recipe.idDrink]);
   }
 }
